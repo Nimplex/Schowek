@@ -29,6 +29,7 @@ def add():
     for i in range(1):
         btn = Button(window, text=txt.get(), wraplength=80, justify=LEFT , command=lambda j=i+1: clicked(btn.cget("text")))
         btn.pack(side=BOTTOM, expand=True)
+    txt.delete(0,END)
 
 def run():
     lbl = Label(window, text="Witaj w schowku!")
