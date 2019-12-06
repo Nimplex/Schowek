@@ -1,0 +1,5 @@
+# Schowek
+
+Packages:
+- pyperclip
+- tkinter
