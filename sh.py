@@ -4,6 +4,7 @@ import pyperclip
 window = Tk()
 window.title("Schowek")
 window.resizable(width=False, height=False)
+top = 0
 
 def all_children (window) :
     _list = window.winfo_children()
@@ -27,11 +28,23 @@ def clicked(text):
 frame = Frame(window)
 def add():
     for i in range(1):
-        btn = Button(window, text=txt.get(), wraplength=80, justify=LEFT , command=lambda j=i+1: clicked(btn.cget("text")))
+        btn = Button(window, text=txt.get(), wraplength=150, justify=LEFT , command=lambda j=i+1: clicked(btn.cget("text")))
         btn.pack(side=BOTTOM, expand=True)
     txt.delete(0,END)
 
+def top():
+    global top
+    if top == 0:
+        window.call('wm', 'attributes', '.', '-topmost', '0')
+        top = 1
+    else:
+        window.call('wm', 'attributes', '.', '-topmost', '1')
+        top = 0
+        
 def run():
+    btntop = Button(window, text="Top", command=top)
+    btntop.pack(side=RIGHT)
+
     lbl = Label(window, text="Witaj w schowku!")
     lbl.pack()
 
@@ -46,9 +59,12 @@ def run():
     
     lbl2 = Label(window, text=" ")
     lbl2.pack()
-
-
     
+
+
+btntop = Button(window, text="Top", command=top)
+btntop.pack(side=RIGHT)
+
 lbl = Label(window, text="Witaj w schowku!")
 lbl.pack()
 
