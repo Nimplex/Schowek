@@ -43,7 +43,7 @@ def top():
         
 def run():
     btntop = Button(window, text="Top", command=top)
-    btntop.pack(side=RIGHT)
+    btntop.pack()
 
     lbl = Label(window, text="Witaj w schowku!")
     lbl.pack()
@@ -63,7 +63,7 @@ def run():
 
 
 btntop = Button(window, text="Top", command=top)
-btntop.pack(side=RIGHT)
+btntop.pack()
 
 lbl = Label(window, text="Witaj w schowku!")
 lbl.pack()
